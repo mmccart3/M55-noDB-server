@@ -1,0 +1,14 @@
+{
+  "name": "crud_server",
+  "version": "1.0.0",
+  "description": "Basic CRUD HTTP server adds books to an array",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M J McCarthy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
