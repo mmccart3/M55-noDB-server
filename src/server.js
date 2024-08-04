@@ -4,16 +4,24 @@ const express = require("express")
 const app = express()
 // rename express to app to keep in line with standard and normal use.
 
+const listOfBooks = [];
+book_id = 1;
+
 app.use('/book', (request, response) => {
     const book = {
+        id: book_id,
         title: "LOTR",
         author: "J.R.R. Tolkein",
         genre: "fantasy"
     };
     // book object created
+
+    listOfBooks.push(book)
+    book_id += 1;
+
     const successResponse = {
-        message: "Book object successfully created",
-        book: book
+        message: "List of books successfully retrieved",
+        books: listOfBooks
     };
     // create a response message to confirm code has run
     response.send(successResponse);
