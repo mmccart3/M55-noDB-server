@@ -1,13 +1,19 @@
 const express = require("express")
 // import express library
+// const cors = require("cors");
 
 const app = express()
 // rename express to app to keep in line with standard and normal use.
 
+// app.use(cors());
+app.use(express.json())
+// app.use(express.urlencoded({ extended: true }))
+
+
 const listOfBooks = [];
 book_id = 1;
 
-app.use('/book', (request, response) => {
+app.get('/book', (request, response) => {
     const book = {
         id: book_id,
         title: "LOTR",
@@ -31,7 +37,13 @@ app.use('/book', (request, response) => {
 // the function will be run. request and response are normally shortened to req and res but initially
 // we will use request and response to help memorise what they mean
 
-app.listen(5001, () => console.log("Server is listening on port 5001"));
+
+app.post("/book",async (request,response) => {
+    console.log(request.body)
+})
+
+
+app.listen(5001, () => console.log("hello Server is listening on port 5001"));
 // The listen method in Express 'listens in' in a particular port on the server it is run on.
 // Ports are a way of spreading incoming and outgoing network traffic on big servers which may be 
 // running several different types of server programs simultaneously. 
